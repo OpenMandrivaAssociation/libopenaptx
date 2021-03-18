@@ -1,3 +1,5 @@
+%global debug_package %{nil}
+
 %define libname %mklibname openaptx %{major}
 %define develname %mklibname openaptx -d
 
