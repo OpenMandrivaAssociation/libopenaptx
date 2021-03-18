@@ -1,44 +1,37 @@
-%def_enable snapshot
+%define libname %mklibname openaptx %{major}
+%define develname %mklibname openaptx -d
 
-%define _name openaptx
-Name: lib%_name
+%define major 0
+
+Name: libopenaptx
 Version: 0.2.0
-Release: alt1
-Epoch: 1
-
+Release: 1
 Summary: Open Source implementation of aptX codec
 Group: System/Libraries
 License: LGPL-2.1-or-later
 Url: https://github.com/pali/libopenaptx
-
-%if_disabled snapshot
-Source: %url/archive/%version/%name-%version.tar.gz
-%else
-Vcs: https://github.com/pali/libopenaptx.git
-Source: %name-%version.tar
-%endif
-Patch: libopenaptx-0.2.0-alt-rpath.patch
+Source0: https://github.com/pali/libopenaptx/releases/download/%{version}/%{name}-%{version}.tar.gz
 
 %description
 This is Open Source implementation of Audio Processing Technology codec
 (aptX) derived from ffmpeg 4.0 project and licensed under LGPLv2.1+. This
 codec is mainly used in Bluetooth A2DP profile.
 
-%package tools
-Summary: aptX tools
-Group: Sound
-Requires: %name = %EVR
+%package -n %{libname}
+Summary:       Library for Open Source implementation of aptX codec
+Group:         System/Libraries
 
-%description tools
-This package provides command line utilities openaptxenc and openaptxdec
-for encoding and decoding operations.
+%description -n %{libname}
+This is Open Source implementation library of Audio Processing Technology codec
+(aptX) derived from ffmpeg 4.0 project and licensed under LGPLv2.1+. This
+codec is mainly used in Bluetooth A2DP profile.
 
-%package devel
+%package -n %{develname}
 Summary: aptX header files
 Group: Development/C
-Requires: %name = %EVR
+Requires:	%{libname} = %{version}-%{release}
 
-%description devel
+%description -n %{develname}
 This package provides files needed to develop programms which use %name.
 
 %prep
@@ -55,14 +48,14 @@ sed -i '/^LDFLAGS = -s/d' Makefile
 %makeinstall_std PREFIX=%_prefix LIBDIR=%_lib
 
 %files
-%_libdir/%name.so.*
-%doc README
-
-%files tools
 %_bindir/%{_name}dec
 %_bindir/%{_name}enc
 
-%files devel
+%files -n %{libname}
+%_libdir/%name.so.*
+%doc README
+
+%files -n %{develname}
 %_includedir/%_name.h
 %_libdir/%name.so
 %_pkgconfigdir/%name.pc
