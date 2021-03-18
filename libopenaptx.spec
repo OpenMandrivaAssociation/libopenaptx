@@ -2,6 +2,7 @@
 
 %define libname %mklibname openaptx %{major}
 %define develname %mklibname openaptx -d
+%define oname openaptx
 
 %define major 0
 
@@ -13,6 +14,15 @@ Group: System/Libraries
 License: LGPL-2.1-or-later
 Url: https://github.com/pali/libopenaptx
 Source0: https://github.com/pali/libopenaptx/releases/download/%{version}/%{name}-%{version}.tar.gz
+
+%package -n %{oname}
+Summary:       Library for Open Source implementation of aptX codec
+Group:         System/Libraries
+
+%description -n %{oname}
+This is Open Source implementation library of Audio Processing Technology codec
+(aptX) derived from ffmpeg 4.0 project and licensed under LGPLv2.1+. This
+codec is mainly used in Bluetooth A2DP profile.
 
 %description
 This is Open Source implementation of Audio Processing Technology codec
@@ -47,7 +57,7 @@ sed -i '/^LDFLAGS = -s/d' Makefile
 %install
 %make_install PREFIX=%_prefix LIBDIR=%_lib
 
-%files
+%files -n %{oname}
 %{_bindir}/openaptxdec
 %{_bindir}/openaptxenc
 
