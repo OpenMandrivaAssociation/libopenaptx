@@ -35,17 +35,16 @@ Requires:	%{libname} = %{version}-%{release}
 This package provides files needed to develop programms which use %name.
 
 %prep
-%setup
-%patch
+%autosetup -p1
 # don't strip binaries
 sed -i '/^LDFLAGS = -s/d' Makefile
 
 %build
 %define _optlevel 3
-%make CC=%__cc CFLAGS="%optflags_default" default
+%make_build
 
 %install
-%makeinstall_std PREFIX=%_prefix LIBDIR=%_lib
+%make_install PREFIX=%_prefix LIBDIR=%_lib
 
 %files
 %_bindir/%{_name}dec
