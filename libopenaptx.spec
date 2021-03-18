@@ -49,7 +49,7 @@ sed -i '/^LDFLAGS = -s/d' Makefile
 
 %files
 %{_bindir}/openaptxdec
-%{_bindir}/openaptxdec
+%{_bindir}/openaptxenc
 
 %files -n %{libname}
 %{_libdir}/libopenaptx.so.%{major}
