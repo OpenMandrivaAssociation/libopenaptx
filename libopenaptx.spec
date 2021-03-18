@@ -47,17 +47,17 @@ sed -i '/^LDFLAGS = -s/d' Makefile
 %make_install PREFIX=%_prefix LIBDIR=%_lib
 
 %files
-%_bindir/%{_name}dec
-%_bindir/%{_name}enc
+#_bindir/%{_name}dec
+#_bindir/%{_name}enc
 
 %files -n %{libname}
-%_libdir/%name.so.*
+#_libdir/%name.so.*
 %doc README
 
 %files -n %{develname}
-%_includedir/%_name.h
-%_libdir/%name.so
-%_pkgconfigdir/%name.pc
+#_includedir/%_name.h
+#_libdir/%name.so
+#_pkgconfigdir/%name.pc
 
 %exclude %_libdir/%name.a
 
