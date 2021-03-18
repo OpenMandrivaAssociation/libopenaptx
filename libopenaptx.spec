@@ -42,25 +42,23 @@ This package provides files needed to develop programms which use %name.
 sed -i '/^LDFLAGS = -s/d' Makefile
 
 %build
-%define _optlevel 3
 %make_build
 
 %install
 %make_install PREFIX=%_prefix LIBDIR=%_lib
 
 %files
-#_bindir/%{_name}dec
-#_bindir/%{_name}enc
+%{_bindir}/openaptxdec
+%{_bindir}/openaptxdec
 
 %files -n %{libname}
-#_libdir/%name.so.*
+%{_libdir}/libopenaptx.so.%{major}
+%{_libdir}/libopenaptx.so.%{version}
 %doc README
 
 %files -n %{develname}
-#_includedir/%_name.h
-#_libdir/%name.so
-#_pkgconfigdir/%name.pc
+%{_includedir}/openaptx.h
+%{_libdir}/libopenaptx.so
+%{_libdir}/pkgconfig/libopenaptx.pc
 
 %exclude %_libdir/%name.a
-
-
