@@ -7,11 +7,11 @@
 %define major 0
 
 Name: libopenaptx
-Version: 0.2.0
+Version: 0.2.1
 Release: 1
 Summary: Open Source implementation of aptX codec
 Group: System/Libraries
-License: LGPL-2.1-or-later
+License: GPLv3+
 Url: https://github.com/pali/libopenaptx
 Source0: https://github.com/pali/libopenaptx/releases/download/%{version}/%{name}-%{version}.tar.gz
 
