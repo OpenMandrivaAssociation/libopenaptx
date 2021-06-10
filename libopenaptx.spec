@@ -54,6 +54,10 @@ This package provides files needed to develop programms which use %name.
 sed -i '/^LDFLAGS = -s/d' Makefile
 
 %build
+%ifarch %{ix86}
+export CC=gcc
+export CXX=g++
+%endif
 %make_build
 
 %install
