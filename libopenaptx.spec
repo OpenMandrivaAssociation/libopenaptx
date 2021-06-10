@@ -8,9 +8,9 @@
 %define major 0
 
 Name: libopenaptx
+Epoch:   2
 Version: 0.2.0
 Release: 1
-Epoch: 1
 Summary: Open Source implementation of aptX codec
 Group: System/Libraries
 License: LGPL-2.1-or-later
@@ -43,7 +43,7 @@ codec is mainly used in Bluetooth A2DP profile.
 %package -n %{develname}
 Summary: aptX header files
 Group: Development/C
-Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libname} = %{epoch}:%{version}-%{release}
 
 %description -n %{develname}
 This package provides files needed to develop programms which use %name.
