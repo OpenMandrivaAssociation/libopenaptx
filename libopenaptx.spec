@@ -10,7 +10,7 @@
 Name: libopenaptx
 Epoch:   2
 Version: 0.2.1
-Release: 1
+Release: 2
 Summary: Open Source implementation of aptX codec
 Group: System/Libraries
 License: LGPL-2.1-or-later
