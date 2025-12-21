@@ -21,6 +21,7 @@ Source0: https://github.com/pali/libopenaptx/releases/download/%{version}/%{name
 Summary:       Library for Open Source implementation of aptX codec
 Group:         System/Libraries
 
+BuildRequires:	make
 %description -n %{oname}
 This is Open Source implementation library of Audio Processing Technology codec
 (aptX) derived from ffmpeg 4.0 project and licensed under LGPLv2.1+. This
